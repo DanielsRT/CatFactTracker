@@ -13,6 +13,7 @@ def setup_database():
         )
     ''')
     conn.commit()
+    conn.row_factory = sqlite3.Row
     return conn
 
 def insert_fact(conn, fact):

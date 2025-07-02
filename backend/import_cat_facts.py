@@ -15,6 +15,7 @@ def fetch_cat_fact():
         return None
     
 def main():
+    print()
     conn = db.setup_database()
     fetched_facts = set()
 
