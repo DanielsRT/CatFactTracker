@@ -18,4 +18,10 @@ fi
 
 
 # Run the Python script
-py backend/import_cat_facts.py
+py backend/import_cat_facts.py 
+
+export PYTHONPATH=$(pwd)/backend
+
+uvicorn backend.main:app --reload &
+
+(cd frontend && npm install && npm run dev)
