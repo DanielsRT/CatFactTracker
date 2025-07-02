@@ -1,4 +1,5 @@
 import requests
+import db
 
 FACTS_URL = 'https://catfact.ninja/fact'
 FACT_COUNT = 5
@@ -14,15 +15,17 @@ def fetch_cat_fact():
         return None
     
 def main():
+    conn = db.setup_database()
     fetched_facts = set()
 
     while len(fetched_facts) < FACT_COUNT:
         fact = fetch_cat_fact()
-        if fact not in fetched_facts:
+        if fact and fact not in fetched_facts:
+            db.insert_fact(conn, fact)
             fetched_facts.add(fact)
-            print(f"Fetched fact: {fact}")
-        else:
-            print("Fact already exists, fetching a new one...")
+
+    conn.close()
+            
 
 if __name__ == "__main__":
     main()
