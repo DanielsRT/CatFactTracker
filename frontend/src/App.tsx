@@ -61,30 +61,30 @@ function App() {
         </a>
       </div>
       <div className="container">
-      <h1 className="title">🐱 Cat Facts</h1>
+        <h1 className="title">🐱 Cat Facts</h1>
 
-      <form onSubmit={handleSubmit} className="form">
-        <input
-          className="form-input"
-          placeholder="Enter a new cat fact"
-          value={newFact}
-          onChange={(e) => setNewFact(e.target.value)}
-        />
-        <button type="submit" className="form-button">
-          Add
-        </button>
-      </form>
+        <form onSubmit={handleSubmit} className="form">
+          <input
+            className="form-input"
+            placeholder="Enter a new cat fact"
+            value={newFact}
+            onChange={(e) => setNewFact(e.target.value)}
+          />
+          <button type="submit" className="form-button">
+            Add
+          </button>
+        </form>
 
-      {message && <p className="message">{message}</p>}
+        {message && <p className="message">{message}</p>}
 
-      <ul className="fact-list">
-        {catFacts.map((fact) => (
-          <li key={fact.id} className="fact-item">
-            <p className="fact-text">{fact.fact}</p>
-            <small className="text-xs text-gray-500">Added on {fact.created_at}</small>
-          </li>
-        ))}
-      </ul>
+        <ul className="fact-list">
+          {catFacts.map((fact) => (
+            <li key={fact.id} className="fact-item">
+              <p className="fact-text">{fact.fact}</p>
+              <small className="fact-date">Added on {fact.created_at}</small>
+            </li>
+          ))}
+        </ul>
     </div>
     </>
   )
