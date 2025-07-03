@@ -25,6 +25,7 @@ def main():
             db.insert_fact(conn, fact)
             fetched_facts.add(fact)
 
+    print()
     conn.close()
             
 
