@@ -22,6 +22,6 @@ py backend/import_cat_facts.py
 
 export PYTHONPATH=$(pwd)/backend
 
-uvicorn backend.main:app --reload &
+uvicorn backend.main:app --reload --reload-dir backend &
 
 (cd frontend && npm install && npm run dev)
